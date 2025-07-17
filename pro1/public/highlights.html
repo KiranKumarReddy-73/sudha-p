@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Highlights - Sudha Pujari</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'orbitron': ['Orbitron', 'monospace'],
+                        'inter': ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        'cyber-blue': '#00D4FF',
+                        'neon-green': '#39FF14',
+                        'deep-purple': '#6B46C1',
+                        'dark-bg': '#0a0a0a',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
+            font-family: 'Inter', sans-serif;
+        }
+        .glass {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .card-hover {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .card-hover:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 25px 50px -12px rgba(6, 182, 212, 0.3);
+        }
+        .modal {
+            backdrop-filter: blur(20px);
+        }
+    </style>
+</head>
+<body class="min-h-screen text-white">
+    <div class="container mx-auto px-6 py-20">
+        <!-- Header -->
+        <div class="text-center mb-16">
+            <h1 class="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-cyan-400 to-purple-500 bg-clip-text text-transparent font-orbitron">
+                🏆 Highlights
+            </h1>
+            <p class="text-xl text-gray-400 max-w-3xl mx-auto mb-8">
+                Celebrating achievements, speaking engagements, and contributions to the cybersecurity community
+            </p>
+            <div class="w-24 h-1 bg-gradient-to-r from-cyan-400 to-purple-500 mx-auto"></div>
+        </div>
+
+        <!-- Cards Grid -->
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+            <!-- Awards & Recognitions -->
+            <div class="glass rounded-2xl p-8 card-hover cursor-pointer" onclick="openModal('awards')">
+                <div class="w-16 h-16 rounded-xl bg-gradient-to-br from-yellow-400 to-orange-500 flex items-center justify-center mb-6 shadow-lg">
+                    <span class="text-2xl">🏅</span>
+                </div>
+                <h3 class="text-2xl font-bold text-white mb-4">Awards & Recognitions</h3>
+                <p class="text-gray-300 mb-6 leading-relaxed">
+                    Industry recognition for excellence in cybersecurity and product security leadership.
+                </p>
+                <button class="w-full px-6 py-3 bg-gradient-to-r from-yellow-400 to-orange-500 rounded-lg font-semibold text-black transition-all duration-300 hover:shadow-lg">
+                    Click to Explore
+                </button>
+            </div>
+
+            <!-- Speaking Engagements -->
+            <div class="glass rounded-2xl p-8 card-hover cursor-pointer" onclick="openModal('speaking')">
+                <div class="w-16 h-16 rounded-xl bg-gradient-to-br from-purple-400 to-pink-500 flex items-center justify-center mb-6 shadow-lg">
+                    <span class="text-2xl">🎙️</span>
+                </div>
+                <h3 class="text-2xl font-bold text-white mb-4">Speaking Engagements</h3>
+                <p class="text-gray-300 mb-6 leading-relaxed">
+                    Keynotes and presentations at major cybersecurity conferences and industry events.
+                </p>
+                <button class="w-full px-6 py-3 bg-gradient-to-r from-purple-400 to-pink-500 rounded-lg font-semibold text-white transition-all duration-300 hover:shadow-lg">
+                    Click to Explore
+                </button>
+            </div>
+
+            <!-- Hackathon Judging -->
+            <div class="glass rounded-2xl p-8 card-hover cursor-pointer" onclick="openModal('judging')">
+                <div class="w-16 h-16 rounded-xl bg-gradient-to-br from-green-400 to-emerald-500 flex items-center justify-center mb-6 shadow-lg">
+                    <span class="text-2xl">👩‍⚖️</span>
+                </div>
+                <h3 class="text-2xl font-bold text-white mb-4">Hackathon Judging</h3>
+                <p class="text-gray-300 mb-6 leading-relaxed">
+                    Evaluating innovative security solutions and mentoring the next generation of cybersecurity professionals.
+                </p>
+                <button class="w-full px-6 py-3 bg-gradient-to-r from-green-400 to-emerald-500 rounded-lg font-semibold text-white transition-all duration-300 hover:shadow-lg">
+                    Click to Explore
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modals -->
+    <!-- Awards Modal -->
+    <div id="awards-modal" class="fixed inset-0 bg-black/80 modal hidden items-center justify-center z-50 p-4">
+        <div class="glass rounded-2xl max-w-6xl w-full max-h-[90vh] overflow-y-auto">
+            <div class="p-8">
+                <div class="flex justify-between items-center mb-8">
+                    <h2 class="text-3xl font-bold text-white">🏅 Awards & Recognitions</h2>
+                    <button onclick="closeModal('awards')" class="text-gray-400 hover:text-white text-2xl">&times;</button>
+                </div>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="glass rounded-lg p-6 text-center">
+                        <div class="w-full h-48 bg-gradient-to-br from-yellow-400/20 to-orange-500/20 rounded-lg mb-4 flex items-center justify-center">
+                            <span class="text-4xl">🏆</span>
+                        </div>
+                        <h3 class="text-lg font-semibold text-white mb-2">Excellence in Security Leadership</h3>
+                        <p class="text-gray-300 text-sm">Recognized for outstanding leadership in product security at Salesforce (2023)</p>
+                    </div>
+                    <div class="glass rounded-lg p-6 text-center">
+                        <div class="w-full h-48 bg-gradient-to-br from-yellow-400/20 to-orange-500/20 rounded-lg mb-4 flex items-center justify-center">
+                            <span class="text-4xl">🥇</span>
+                        </div>
+                        <h3 class="text-lg font-semibold text-white mb-2">Top Security Researcher</h3>
+                        <p class="text-gray-300 text-sm">Industry recognition for innovative security research and threat modeling (2022)</p>
+                    </div>
+                    <div class="glass rounded-lg p-6 text-center">
+                        <div class="w-full h-48 bg-gradient-to-br from-yellow-400/20 to-orange-500/20 rounded-lg mb-4 flex items-center justify-center">
+                            <span class="text-4xl">🌟</span>
+                        </div>
+                        <h3 class="text-lg font-semibold text-white mb-2">Mentor of the Year</h3>
+                        <p class="text-gray-300 text-sm">ADPList recognition for exceptional mentorship in cybersecurity (2023)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Speaking Modal -->
+    <div id="speaking-modal" class="fixed inset-0 bg-black/80 modal hidden items-center justify-center z-50 p-4">
+        <div class="glass rounded-2xl max-w-6xl w-full max-h-[90vh] overflow-y-auto">
+            <div class="p-8">
+                <div class="flex justify-between items-center mb-8">
+                    <h2 class="text-3xl font-bold text-white">🎙️ Speaking Engagements</h2>
+                    <button onclick="closeModal('speaking')" class="text-gray-400 hover:text-white text-2xl">&times;</button>
+                </div>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="glass rounded-lg p-6 text-center">
+                        <div class="w-full h-48 bg-gradient-to-br from-purple-400/20 to-pink-500/20 rounded-lg mb-4 flex items-center justify-center">
+                            <span class="text-4xl">🎤</span>
+                        </div>
+                        <h3 class="text-lg font-semibold text-white mb-2">RSA Conference 2023</h3>
+                        <p class="text-gray-300 text-sm">Keynote: "Zero Trust Architecture in Modern Cloud Environments"</p>
+                    </div>
+                    <div class="glass rounded-lg p-6 text-center">
+                        <div class="w-full h-48 bg-gradient-to-br from-purple-400/20 to-pink-500/20 rounded-lg mb-4 flex items-center justify-center">
+                            <span class="text-4xl">🎯</span>
+                        </div>
+                        <h3 class="text-lg font-semibold text-white mb-2">Black Hat USA 2022</h3>
+                        <p class="text-gray-300 text-sm">Workshop: "Advanced Threat Modeling for Product Security"</p>
+                    </div>
+                    <div class="glass rounded-lg p-6 text-center">
+                        <div class="w-full h-48 bg-gradient-to-br from-purple-400/20 to-pink-500/20 rounded-lg mb-4 flex items-center justify-center">
+                            <span class="text-4xl">🚀</span>
+                        </div>
+                        <h3 class="text-lg font-semibold text-white mb-2">DEF CON 30</h3>
+                        <p class="text-gray-300 text-sm">Panel: "The Future of Application Security in DevSecOps"</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Judging Modal -->
+    <div id="judging-modal" class="fixed inset-0 bg-black/80 modal hidden items-center justify-center z-50 p-4">
+        <div class="glass rounded-2xl max-w-6xl w-full max-h-[90vh] overflow-y-auto">
+            <div class="p-8">
+                <div class="flex justify-between items-center mb-8">
+                    <h2 class="text-3xl font-bold text-white">👩‍⚖️ Hackathon Judging</h2>
+                    <button onclick="closeModal('judging')" class="text-gray-400 hover:text-white text-2xl">&times;</button>
+                </div>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="glass rounded-lg p-6 text-center">
+                        <div class="w-full h-48 bg-gradient-to-br from-green-400/20 to-emerald-500/20 rounded-lg mb-4 flex items-center justify-center">
+                            <span class="text-4xl">⚖️</span>
+                        </div>
+                        <h3 class="text-lg font-semibold text-white mb-2">CyberSec Hackathon 2023</h3>
+                        <p class="text-gray-300 text-sm">Lead judge for innovative security solutions and threat detection systems</p>
+                    </div>
+                    <div class="glass rounded-lg p-6 text-center">
+                        <div class="w-full h-48 bg-gradient-to-br from-green-400/20 to-emerald-500/20 rounded-lg mb-4 flex items-center justify-center">
+                            <span class="text-4xl">🔍</span>
+                        </div>
+                        <h3 class="text-lg font-semibold text-white mb-2">SecureCode Challenge</h3>
+                        <p class="text-gray-300 text-sm">Evaluating secure coding practices and vulnerability assessment tools</p>
+                    </div>
+                    <div class="glass rounded-lg p-6 text-center">
+                        <div class="w-full h-48 bg-gradient-to-br from-green-400/20 to-emerald-500/20 rounded-lg mb-4 flex items-center justify-center">
+                            <span class="text-4xl">🛡️</span>
+                        </div>
+                        <h3 class="text-lg font-semibold text-white mb-2">Cloud Security Summit</h3>
+                        <p class="text-gray-300 text-sm">Mentoring teams on cloud security architecture and best practices</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openModal(type) {
+            document.getElementById(type + '-modal').classList.remove('hidden');
+            document.getElementById(type + '-modal').classList.add('flex');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal(type) {
+            document.getElementById(type + '-modal').classList.add('hidden');
+            document.getElementById(type + '-modal').classList.remove('flex');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal when clicking outside
+        document.addEventListener('click', function(e) {
+            if (e.target.classList.contains('modal')) {
+                const modals = ['awards', 'speaking', 'judging'];
+                modals.forEach(modal => closeModal(modal));
+            }
+        });
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                const modals = ['awards', 'speaking', 'judging'];
+                modals.forEach(modal => closeModal(modal));
+            }
+        });
+    </script>
+</body>
+</html>
